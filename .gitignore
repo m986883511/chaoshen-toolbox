@@ -1,0 +1,7 @@
+AUTHORS
+ChangeLog
+.eggs
+build
+dist
+*.egg-info
+.idea
