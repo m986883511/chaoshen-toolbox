@@ -32,9 +32,9 @@ def main():
         description=f'delete file req and generate newfile\n{usage}',
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('-f', "--file", type=str, help="the log file need to deal with")
+    parser.add_argument("log_filepath", type=str, help="the log file need to deal with")
     args = parser.parse_args()
-    deal_with(file_path=args.file)
+    deal_with(file_path=args.log_filepath)
 
 
 if __name__ == '__main__':
