@@ -1,5 +1,6 @@
 
 import os
+import yaml
 
 
 def add_suffix_to_file(filepath, suffix):
@@ -22,3 +23,7 @@ def add_suffix_to_file(filepath, suffix):
     return new_filepath
 
 
+def read_yaml(filepath) -> dict:
+    with open(filepath, 'r') as f:
+        data = yaml.load(f, Loader=yaml.FullLoader)
+    return data

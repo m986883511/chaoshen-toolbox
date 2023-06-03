@@ -1,0 +1,39 @@
+yoga:
+  platform: windows
+  network:
+    home:
+      dns: [ 8.8.8.8, 114.114.114.114 ]
+      wifi: [ cc5, cc2 ]
+      nic:
+        wireless: 192.168.2.214/24
+        wired: 192.168.2.215/24
+      route:
+        default: 192.168.2.1
+        custom: 192.168.2.30
+
+    astute:
+      dns: [ 8.8.8.8, 114.114.114.114 ]
+      wifi: [ openstack, openstack_5G, WiFi-ASTUTE ]
+      nic:
+        wireless: 192.168.2.214/24
+        wired: 192.168.2.215/24
+      route:
+        default: 192.168.2.1
+        custom: 192.168.2.30
+
+
+
+
+EQ12-N100:
+  platform: windows
+  network:
+    home:
+      wifi: [ cc5, cc2 ]
+      dns: [ 8.8.8.8, 114.114.114.114 ]
+      nic:
+        wireless: 192.168.2.214/24
+        wired: 192.168.2.215/24
+      route:
+        default: 192.168.2.1
+        custom: 192.168.2.30
+
