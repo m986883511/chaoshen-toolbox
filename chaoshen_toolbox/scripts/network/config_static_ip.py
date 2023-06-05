@@ -70,8 +70,7 @@ def prepare_nic(interface) -> str:
 
             generated_config_network_command += commands
             execute_command(f"enable {wlan_nic_name} or not")
-            global available_wifi_names
-            available_wifi_names = windows.get_available_wifi_names()
+
         return wlan_nic_name
 
     else:
@@ -101,6 +100,9 @@ def get_config_ip_command(route, interface, place):
     user_config = get_network_config()
 
     interface_nic = prepare_nic(interface)
+    global available_wifi_names
+    available_wifi_names = windows.get_available_wifi_names()
+    LOG.info(f'available_wifi_names is {available_wifi_names}')
 
     # get_network_scripts_path = os.path.join(common.get_tool_platform_script_path(), 'Get-NetIpConfigration.ps1')
     # success, result = common.execute_command(f"powershell {get_network_scripts_path}")
@@ -115,12 +117,18 @@ def get_config_ip_command(route, interface, place):
         assert platform_name == network_config.platform, \
             f"check {hostname} platform not equal to config={network_config}"
         for where, value in network_config.network.items():
-            LOG.info(f"{where} config is {value.dict()}")
-            dns = value.dns
+
+            # dns = value.dns
             if not set(value.wifi) - set(available_wifi_names):
                 continue
-            LOG.info(f'you are in {where}')
-
+            for i in available_wifi_names:
+                if i in value.wifi:
+                    LOG.info(f'find wifi {i}, so you are in {where}')
+                    break
+            else:
+                LOG.info(f'not in {where}, check another')
+                continue
+            LOG.info(f"{where} config is {value.dict()}")
             config = {
                 "ip": value.nic.wireless.split('/')[0],
                 "mask": "255.255.255.0",
@@ -149,7 +157,6 @@ def get_config_ip_command(route, interface, place):
 
 
 def main():
-
     parser = argparse.ArgumentParser(description='output config static ip command')
 
     parser.add_argument('-r', '--route',

@@ -13,15 +13,13 @@ yoga:
 
     astute:
       dns: [ 8.8.8.8, 114.114.114.114 ]
-      wifi: [ openstack, openstack_5G, WiFi-ASTUTE ]
+      wifi: [ ASUS_5G_2, ASUS, WiFi-ASTUTE ]
       nic:
-        wireless: 192.168.2.214/24
-        wired: 192.168.2.215/24
+        wireless: 192.222.9.162/24
+        wired: 192.222.9.162/24
       route:
-        default: 192.168.2.1
-        custom: 192.168.2.30
-
-
+        default: 192.222.1.254
+        custom: 192.222.9.150
 
 
 EQ12-N100:
