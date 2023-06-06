@@ -13,8 +13,8 @@ def create_temp_sudo_command_file():
     content = """#!/bin/bash
 code="$@"
 echo your_code: $code
+echo ""
 eval $code
-echo exit_code: $?
 """
     global SUDO_COMMAND_NAME
     temp_sudo_command_filepath = f"/tmp/{SUDO_COMMAND_NAME}"
