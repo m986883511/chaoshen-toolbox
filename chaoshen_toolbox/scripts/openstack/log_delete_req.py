@@ -18,7 +18,7 @@ def deal_with(file_path):
         raise Exception(f'file {file_path} not exist')
 
     new_filepath = file.add_suffix_to_file(file_path, 'noreq')
-    regex = r"\[req-.*?\]"
+    regex = r"\[.*?req-.*?\]"
     with open(file_path, 'r') as f:
         lines = f.readlines()
     with open(new_filepath, 'w') as f:
