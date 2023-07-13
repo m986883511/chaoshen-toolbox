@@ -39,7 +39,7 @@ def check_require_pip_package(package_name, package_install_name=None):
 @my_decorator.only_run_once
 def get_current_system_platform():
     """
-    return linux orwindows
+    return linux or windows
     :return:
     """
     current_platform = platform.system().lower()
@@ -53,7 +53,7 @@ def check_current_platform_is_correct(platform_name: str):
 
 
 def get_current_system_user():
-    current_platform = get_current_system_platform
+    current_platform = get_current_system_platform()
     if current_platform == support.Platform.linux.name:
         return os.getlogin()
     elif current_platform == support.Platform.windows.name:
@@ -121,7 +121,6 @@ def get_tool_platform_script_path():
         return debug_platform_dir
     else:
         return os.path.abspath(installed_platform_scripts_dir)
-
 
 
 if __name__ == '__main__':
