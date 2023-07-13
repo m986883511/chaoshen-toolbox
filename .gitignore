@@ -5,7 +5,7 @@ build
 dist
 *.egg-info
 .idea
-demo.py
+demo/
 *.pyc
 .vscode
 
@@ -26,8 +26,7 @@ dist/
 eggs/
 *.egg-info/
 *.egg
-demo.py
-demo/
+
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
