@@ -6,5 +6,6 @@
 快速安装
 ```shell
 pip install git+https://github.com/m986883511/chaoshen-toolbox.git
-
+# or
+pip install git+https://gitee.com/m986883511/chaoshen-toolbox.git
 ```
