@@ -12,13 +12,15 @@ pipeline{
             }
         }
         stage('msg'){
-            wxwork(
-                robot: 'ID',
-                type: 'text',
-                text: [
-                    '${JOB_NAME}-${BRANCH_NAME}-${BUILD_NUMBER}构建成功'
-                ]
-            )
+            steps{
+                wxwork(
+                    robot: 'jenkins',
+                    type: 'text',
+                    text: [
+                        '${JOB_NAME}-${BRANCH_NAME}-${BUILD_NUMBER}构建成功'
+                    ]
+                )
+            }
         }
     }
 }
