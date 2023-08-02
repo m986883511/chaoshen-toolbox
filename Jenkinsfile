@@ -11,9 +11,15 @@ pipeline{
                 echo 'Testing the app'
             }
         }
-        stage('Deploy'){
+        stage('msg'){
             steps{
-                echo 'Deploying the app'
+                wxwork(
+                    robot: 'ID',
+                    type: 'text',
+                    text: [
+                        '${JOB_NAME}-${BRANCH_NAME}-${BUILD_NUMBER}构建成功'
+                    ]
+                )
             }
         }
     }
