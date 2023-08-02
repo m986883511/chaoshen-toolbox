@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                python setup.py build
+                sh 'python setup.py build'
             }
         }
         stage('Test'){
