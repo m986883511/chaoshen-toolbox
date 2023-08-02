@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        PROJECT_NAME = "chaoshen-toolbox"
+    }
     stages{
         stage('Build'){
             steps{
@@ -17,7 +20,8 @@ pipeline{
                     robot: 'jenkins',
                     type: 'text',
                     text: [
-                        '${JOB_NAME}-${BRANCH_NAME}-${BUILD_NUMBER}构建成功'
+                        '${JOB_NAME}-${BUILD_NUMBER} 构建成功',
+                        '${PROJECT_NAME} 构建成功',
                     ]
                 )
             }
