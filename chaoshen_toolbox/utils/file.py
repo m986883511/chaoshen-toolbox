@@ -35,6 +35,17 @@ def read_ini(filepath) -> dict:
     return config
 
 
+def read_file_list(filepath, mode='rb') -> list:
+    with open(filepath, mode=mode) as f:
+        content = f.readlines()
+    return content
+
+
+def write_file_list(contents: list, filepath, mode='wb'):
+    with open(filepath, mode=mode) as f:
+        f.writelines(contents)
+
+
 def ini_to_dict(file_path):
     config = configparser.ConfigParser()
     config.read(file_path)
